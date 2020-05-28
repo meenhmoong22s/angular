@@ -13,7 +13,7 @@ const routesConfig: Routes = [
   { path: 'todoapp', component: AppComponent },
   // fix error routing
   // set page default
-  { path: '', redirectTo: '/todoapp', pathMatch: 'full' },
+  { path: '', redirectTo: '/getweather', pathMatch: 'full' },
   // set page mặc định khi ng dùng nhập tào lao
   { path: '**', component: PagenotfoundComponent }
 ];
