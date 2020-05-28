@@ -10,9 +10,10 @@ const routesConfig: Routes = [
   {path: 'getweather', component: WeatherApiComponent},
   {path: 'formlogin', component: LoginComponent},
   { path: 'formgroup', component: FormGroupComponent },
+  { path: 'todoapp', component: AppComponent },
   // fix error routing
   // set page default
-  { path: '', redirectTo: '/getweather', pathMatch: 'full' },
+  { path: '', redirectTo: '/todoapp', pathMatch: 'full' },
   // set page mặc định khi ng dùng nhập tào lao
   { path: '**', component: PagenotfoundComponent }
 ];
