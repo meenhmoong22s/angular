@@ -1,0 +1,13 @@
+<h3>search weather-api use name city</h3>
+<!-- <h3 >{{cityName}} is now {{postData.main.temp | json}}</h3> -->
+<!-- cách 1 có | json -->
+<!-- <h3>{{cityName === '' ? 'Enter your Cityname' : ('Weather ' + cityName + ' is now ' + (postData.main.temp | json) + ' *C')}}</h3> -->
+<!-- cách 2 ghi 1 function trong ts thì k cần | json -->
+<h3>{{getWeather()}}</h3>
+<!-- lấy 1 giá trị input by vào [(ngModel)]="cityName" như vậy -->
+<input placeholder="Enter your city name" type="text" [(ngModel)]="cityName">
+<button (click)="getApiWeather()" type="submit" class="btn btn-outline-primary">Get weather</button>
+
+<!-- <p>{{postData | json}}</p> -->
+
+

@@ -1,0 +1,12 @@
+<!-- <h2>đây là cách dùng pipe: {{birthday | date:'shortTime'}} is my birthday</h2> -->
+<h2>đây là cách dùng pipe: {{birthday | date}} is my birthday</h2>
+<p>{{person | json}}</p>
+<!-- có thể dùng 2 pipe liên tiếp -->
+<p>{{person | json | uppercase}}</p>
+<p>{{person.name}}</p>
+<p>{{person.name | uppercase}}</p>
+<!-- // khi dữ liệu ở kiểu promise dùng pipe async -->
+<p>{{address | async}}</p>
+<!-- roundNum là pipe tự custom, có thể truyền nhiều tham số cho pipe  -->
+<p>{{1.5 | roundNum:true: 2}}    learn pipi custom</p>
+<p>{{1.5 | roundNum:false: 2}}   learn pipi custom</p>

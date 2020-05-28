@@ -1,0 +1,12 @@
+<h3>Call Post API</h3>
+<!-- cách lấy nhiều giá trị input dùng ngForm -->
+<!-- lấy 1 giá trị input by vào [(ngModel)]="cityName" như vậy -->
+<form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)">
+    <!-- ng-Module ở đây phải đi chung với name không có sẽ báo lỗi -->
+    <!-- required + [disabled]="userPost.invalid"  không cho submit khi chưa nhập -->
+    <input required type="text" name="name" ngModel placeholder="name"><br><br>
+    <input required type="text" name="address" ngModel placeholder="address"><br><br>
+    <input required type="text" name="email" ngModel placeholder="email"><br><br>
+    <input required type="text" name="rating" ngModel placeholder="rating"><br><br>
+    <button [disabled]="userPost.invalid" type="submit" class="btn btn-outline-primary">submit data</button>
+</form>

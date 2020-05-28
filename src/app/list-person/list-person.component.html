@@ -1,0 +1,11 @@
+<!-- ng-container là một thẻ khi render ra sẽ k hiển thị, dùng thay cho thẻ div -->
+<ng-container *ngFor="let people of arrPeople">
+    <!-- lưu ý ngoặc [] khi gọi giữa các component con, component app thì k cần-->
+    <app-person 
+    [name]="people.name" 
+    [age]="people.age"
+    (myRemove)= "removePersonByName($event)" 
+    >
+    <!-- call sự kiện giữa 2 component con -->
+</app-person>
+</ng-container>

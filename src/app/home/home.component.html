@@ -1,0 +1,163 @@
+<div class="container">
+    <div class="class1">
+        <ul ngbNav #nav="ngbNav" [activeId]="2" class="nav-tabs justify-content-center">
+            <li [ngbNavItem]="1">
+                <a href="https://www.w3schools.com/html/html_links.asp" target="_blank">
+                    <img src="./assets/image/1.jpg" alt="" width="45px" height="45px"> </a>
+            </li>
+            <li [ngbNavItem]="2">
+                <a ngbNavLink>Simple</a>
+                <ng-template ngbNavContent>
+                    <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua,
+                        retro
+                        synth
+                        master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit
+                        butcher
+                        retro
+                        keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid.
+                        Aliquip
+                        placeat
+                        salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
+                    </p>
+                </ng-template>
+            </li>
+            <li [ngbNavItem]="3">
+                <a ngbNavLink><b>Fancy</b> title</a>
+                <ng-template ngbNavContent>
+                    <p>Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four
+                        loko
+                        farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk
+                        aliquip
+                        jean
+                        shorts
+                        ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus
+                        mollit.
+                        Keytar
+                        helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio
+                        cillum
+                        wes
+                        anderson
+                        8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party
+                        scenester
+                        stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+                </ng-template>
+            </li>
+            <li ngbDropdown class="nav-item">
+                <a href (click)="false" class="nav-link" ngbDropdownToggle>Dropdown</a>
+                <div ngbDropdownMenu>
+                    <a href="https://www.w3schools.com/html/html_links.asp" target="_blank"> <button
+                            ngbDropdownItem>Action
+                        </button></a>
+                    <button ngbDropdownItem>Another action</button>
+                    <button ngbDropdownItem>Something else here</button>
+                    <div class="dropdown-divider"></div>
+                    <button ngbDropdownItem>Separated link</button>
+                </div>
+            </li>
+            <li ngbNavItem [disabled]="true" class="ml-auto">
+                <!-- <a ngbNavLink>Disabled</a> -->
+                <ng-template ngbNavContent>
+                    <p>Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam.
+                        Nulla
+                        facilisi.
+                        Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu,
+                        congue
+                        et odio.
+                        Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et.
+                        Sed
+                        diam urna,
+                        egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus faucibus
+                        nisl
+                        enim, nec
+                        tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque
+                        penatibus et
+                        magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet
+                        ultricies
+                        in
+                        eget
+                        neque. Phasellus nec tortor vel tellus pulvinar feugiat.</p>
+                </ng-template>
+            </li>
+        </ul>
+
+        <div [ngbNavOutlet]="nav" class="mt-2"></div>
+    </div>
+    <div class="class2">
+        <h2 [hidden]="forgot">Thẻ này đã bị ẩn</h2>
+        <!-- cách tạo sự kiện click 1-->
+        <button (click)="forgot = !forgot" type="button" name="" id="" class="btn btn-primary btn-lg btn-block">cách
+            1</button>
+        <!-- cách tạo sự kiện click 2-->
+        <button (click)="toggleForgot()" type="button" name="" id="" class="btn btn-primary btn-lg btn-block">cách
+            2</button>
+        <h3>Hello Phong {{en}} truyền biến trong angular dùng {{vn}}</h3>
+        <!-- cách truyền biến 1 -->
+        <img src='{{imageUrl}}' alt='' width="200px" />
+        <!-- cách truyền biến 2 -->
+        <img [src]='imageUrl' alt='' width="200px" />
+        <!-- placeholder là chữ miêu tả khi ng dùng nhập vào sẽ tự mất -->
+        <!-- cách 1 bắt sự kiện ng dùng nhập từ bàn phím-->
+        <input placeholder="User From cách 1" (keyup)="showEvent($event)">
+        <span>Your name is: {{name}}</span>
+        <!-- cách 2 bắt sự kiện ng dùng nhập từ bàn phím [(ngModel)] quả chuối trong cái hộp-->
+        <!-- cách 2 này cần phải import FromsModule trong app.module.ts -->
+        <br>
+        <input placeholder="User From cách 2" [(ngModel)]="name" #txtUsername>
+        <!-- cách 1 -->
+        <span [style.color]="name.length % 2 === 0 ? 'red' : 'black'"
+            [style.fontSize]="name.length % 2 ===0 ? '30px':'20px'">Your name is: {{name}}</span>
+        <br>
+        <!-- cách 2 cách sữ dụng ngStyle-->
+        <span [ngStyle]="name.length % 2 === 0 ? evenStyle : oddStyle">Your name is: {{name}}</span>
+        <br>
+        <!-- cách dùng biến tham chiếu mẫu (Template reference variable) -->
+        <code>{{txtUsername.value | json}}</code> <span>đây là biến tham chiếu mẫu</span>
+        <!-- cách1 -->
+        <div [class]="forgot ? 'circle':'square'"></div>
+        <div [class]="forgot ? 'square':'circle'"></div>
+        <!-- cách2 -->
+        <div [ngClass]="currentClass"></div>
+        <button (click)="toggleForgot()" type="button" name="" id=""
+            class="btn btn-primary btn-lg btn-block">change</button>
+        <!-- cách dùng ngIf -->
+        <p *ngIf="isShow">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis optio sint tempore odit
+            voluptas perferendis esse ipsum suscipit temporibus vero accusamus consequuntur, tenetur recusandae illum
+            consectetur, alias, reiciendis ex nam?</p>
+        <button (click)="isShow = !isShow" type="button" name="" id="" class="btn btn-primary btn-lg btn-block">toggle
+            ngIf</button>
+        <!-- cách dùng ngFor   -->
+        <ul>
+            <li *ngFor="let subject of arrSubjects">
+                <!-- có thể nối chuổi trong {{}} -->
+                <p>{{'Subjects: '+subject}}</p>
+            </li>
+        </ul>
+        <div *ngIf="isShowFrom">
+            <input placeholder="English" [(ngModel)]="newEn" />
+            <input placeholder="VietNamese" [(ngModel)]="newVn" />
+            <br>
+            <button (click)="addWord()" type="button" class="btn btn-primary">Add new word</button>
+            <br>
+        </div>
+        <button (click)="isShowFrom = true" *ngIf="!isShowFrom" type="button" class="btn btn-primary">Add new word</button>
+        <br>
+        <select [(ngModel)]="filterStatus">
+            <option value="XEM_TAT_CA">Show All</option>
+            <option value="XEM_GREEN">Show Word Green</option>
+            <option value="XEM_RED">Show Word Red</option>
+        </select>
+        <!-- cách sữ dụng *ngFor với mãng đối tượng -->
+        <div *ngFor="let word of arrWords">
+            <!-- cách 1 -->
+            <!-- <div class="word" *ngIf="filterStatus === 'XEM_TAT_CA' || (filterStatus === 'XEM_GREEN' && word.memorized) || (filterStatus === 'XEM_RED' && !word.memorized)"> -->
+            <!-- cách 2 -->
+            <div class="word" *ngIf="getShowStatus(word.memorized)">
+                <h4 [ngStyle]="{color: word.memorized ? 'green':'red'}">{{word.en}}</h4>
+                <p>{{word.vn}}</p>
+                <button (click)="removeWord(word.id)" type="button" class="btn btn-outline-primary">remove</button>
+                <button class="btnchange" (click)="word.memorized = !word.memorized" type="button" class="btn btn-outline-primary">{{word.memorized ? 'Red' : 'Green'}}</button>
+                                <!-- cách thay đổi trạng thái và text của button -->
+            </div>
+        </div>
+    </div>
+</div>
